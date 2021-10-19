@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "ninja",
+            "args": [
+                "-Cbuild"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": [
+                "build data"
+            ]
+        },
+        {
+            "label": "build data",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                ".",
+                "-GNinja",
+                "-Bbuild"
+            ],
+            "group": "build"
+        }
+    ]
+}
